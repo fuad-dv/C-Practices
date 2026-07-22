@@ -8,7 +8,7 @@ struct Node {
 
 struct Node* head = NULL;
 
-// Create new node
+// new node
 struct Node* createNode(int val) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = val;
@@ -16,7 +16,7 @@ struct Node* createNode(int val) {
     return newNode;
 }
 
-// 1. Insert at FRONT
+// 1. Insert FRONT
 void insertFront(int val) {
     struct Node* newNode = createNode(val);
     newNode->next = head;
@@ -24,7 +24,7 @@ void insertFront(int val) {
     printf("Inserted %d at front\n", val);
 }
 
-// 2. Insert at LAST
+// 2. Insert LAST
 void insertLast(int val) {
     struct Node* newNode = createNode(val);
     
@@ -42,7 +42,7 @@ void insertLast(int val) {
     printf("Inserted %d at last\n", val);
 }
 
-// 3. Insert at MIDDLE (after a specific position/index)
+// 3. Insert MIDDLE
 void insertMiddle(int val, int pos) {
     if (pos < 0 || head == NULL) {
         printf("Invalid position or empty list\n");
@@ -127,7 +127,7 @@ void deleteMiddle(int val) {
     free(toDelete);
 }
 
-// Display the list
+// Display
 void display() {
     if (head == NULL) {
         printf("List is empty\n");
@@ -144,22 +144,21 @@ void display() {
 
 int main() {
     // Insertions
-    insertLast(10);      // List: 10
-    insertLast(20);      // List: 10 -> 20
-    insertLast(30);      // List: 10 -> 20 -> 30
-    insertFront(5);      // List: 5 -> 10 -> 20 -> 30
-    insertMiddle(15, 1); // List: 5 -> 10 -> 15 -> 20 -> 30 (after index 1)
-    
+    insertLast(10);      
+    insertLast(20);      
+    insertLast(30);      
+    insertFront(5);      
+    insertMiddle(15, 1); 
     display();
     
-    // Deletions
-    deleteFront();       // Removes 5
+    
+    deleteFront();       
     display();
     
-    deleteMiddle(15);    // Removes 15
+    deleteMiddle(15);   
     display();
     
-    deleteLast();        // Removes 30
+    deleteLast();        
     display();
     
     return 0;
